@@ -6,6 +6,30 @@
 </head>
 
 <body>
+
+  <h1 class="siteTitle">Order A List</h1>
+  <p>
+    Hello! Welcome to order a list. This application will take a list of items and order it into ascending alphabetical order.
+    I often have to do this so I created a script to do it for me! You are welcome to use it too :)
+  </p>
+
+  <h3>Instructions:</h3>
+  <p>
+    <ol>
+      <li>Check the list you wish to order. There must be one entry per line.</li>
+      <li>Select the list, copy, and paste into the input box below.</li>
+      <li>Press the "Order!" button</li>
+    </ol>
+  </p>
+
+  <button id="orderButton">Order!</button><br>
+  <textarea id="listInput" rows="20" cols="25" placeholder="blue&#10;red&#10;green&#10;Purple&#10;orange&#10;Yellow&#10;Light Pink"></textarea>
+
+  <h3>Ordered List:</h3>
+  <div id="orderedListArea">
+  </div>
+
+  <script src="orderAList.js"></script>
 </body>
 
 </html>
