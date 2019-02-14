@@ -1,5 +1,5 @@
 
-var orderButton = document.querySelector("#orderButton");
+let orderButton = document.querySelector("#orderButton");
 orderButton.addEventListener("click", orderClicked);
 
 function orderClicked(){
@@ -7,41 +7,34 @@ function orderClicked(){
 }
 
 function orderList(){
-  var unorderedList = getUnorderedList();
+  let unorderedList = getUnorderedList();
 
   unorderedList = unorderedList.split("\n");
 
-  for (var i = 0; i < unorderedList.length; i++) {
-    unorderedList[i] = unorderedList[i].trim();
-  }
+  unorderedList = unorderedList.map((unorderedItem) => {
+    return unorderedItem.trim();
+  });
 
   unorderedList.sort(function (a, b) {
     return a.toLowerCase().localeCompare(b.toLowerCase());
   });
 
-  var orderedListString = createOrderedListString(unorderedList);
+  let orderedListString = createOrderedListString(unorderedList);
 
   document.querySelector("#orderedListArea").innerHTML = orderedListString;
 }
 
 function getUnorderedList(){
-  var listInput = document.querySelector("#listInput");
+  let listInput = document.querySelector("#listInput");
   return listInput.value;
 }
 
 function createOrderedListString(orderedList){
-  var orderedString = "";
+  let orderedString = "";
 
-  for (var i = 0; i < orderedList.length; i++) {
-
-    if(i === 0){
-      orderedString = orderedString + orderedList[i];
-    }
-    else{
-      orderedString = orderedString + "<br>" + orderedList[i];
-    }
-
-  }
+  orderedString = orderedList.reduce((total, value) => {
+      return total + "<br>" + value;
+  });
 
   return orderedString;
 }
